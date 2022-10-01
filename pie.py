@@ -1,4 +1,3 @@
-import base64 # Idk if we need this even...
 from socket import gethostname, gethostbyname
 import json
 from requests import get
