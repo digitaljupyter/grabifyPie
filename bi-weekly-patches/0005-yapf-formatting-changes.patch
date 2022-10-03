@@ -1,0 +1,45 @@
+From ef3ecf9fd17919ba00eb2b1d084bab13db81e1eb Mon Sep 17 00:00:00 2001
+From: Kai Daniel Gonzalez <gkai70264@gmail.com>
+Date: Mon, 3 Oct 2022 20:49:22 +0000
+Subject: [PATCH 5/6] `yapf` formatting changes
+
+---
+ roblox/edge.py | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
+
+diff --git a/roblox/edge.py b/roblox/edge.py
+index 47aac34..2ea1511 100644
+--- a/roblox/edge.py
++++ b/roblox/edge.py
+@@ -55,16 +55,20 @@ def error_out():
+     # comment this out if it's a release
+     print(
+         colorama.Style.BRIGHT + colorama.Fore.RED +
+-        "!!! COULD NOT RUN LOGGER !!!\nfor programmers: this could be "+
+-        "because the host system does not run a supported browser. Or- no browser whatsoever. "+
+-        "Please refer to the browser_cookie3 module website for more info."
+-        + colorama.Style.RESET_ALL + colorama.Fore.RESET)
+-        
+-    print(colorama.Fore.YELLOW + "And hey, if you're somebody that has been sent this executable, how about "+
+-    "you give them a nice talk about why not to do this to unwitting colleagues." + colorama.Fore.RESET)
++        "!!! COULD NOT RUN LOGGER !!!\nfor programmers: this could be " +
++        "because the host system does not run a supported browser. Or- no browser whatsoever. "
++        + "Please refer to the browser_cookie3 module website for more info." +
++        colorama.Style.RESET_ALL + colorama.Fore.RESET)
++
++    print(
++        colorama.Fore.YELLOW +
++        "And hey, if you're somebody that has been sent this executable, how about "
++        +
++        "you give them a nice talk about why not to do this to unwitting colleagues."
++        + colorama.Fore.RESET)
+ 
+     print("(press enter to exit)")
+-    input();
++    input()
+     sys.exit(3)
+ 
+ 
+-- 
+2.37.3.windows.1
+
