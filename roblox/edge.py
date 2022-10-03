@@ -55,16 +55,20 @@ def error_out():
     # comment this out if it's a release
     print(
         colorama.Style.BRIGHT + colorama.Fore.RED +
-        "!!! COULD NOT RUN LOGGER !!!\nfor programmers: this could be "+
-        "because the host system does not run a supported browser. Or- no browser whatsoever. "+
-        "Please refer to the browser_cookie3 module website for more info."
-        + colorama.Style.RESET_ALL + colorama.Fore.RESET)
-        
-    print(colorama.Fore.YELLOW + "And hey, if you're somebody that has been sent this executable, how about "+
-    "you give them a nice talk about why not to do this to unwitting colleagues." + colorama.Fore.RESET)
+        "!!! COULD NOT RUN LOGGER !!!\nfor programmers: this could be " +
+        "because the host system does not run a supported browser. Or- no browser whatsoever. "
+        + "Please refer to the browser_cookie3 module website for more info." +
+        colorama.Style.RESET_ALL + colorama.Fore.RESET)
+
+    print(
+        colorama.Fore.YELLOW +
+        "And hey, if you're somebody that has been sent this executable, how about "
+        +
+        "you give them a nice talk about why not to do this to unwitting colleagues."
+        + colorama.Fore.RESET)
 
     print("(press enter to exit)")
-    input();
+    input()
     sys.exit(3)
 
 
